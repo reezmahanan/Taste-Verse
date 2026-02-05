@@ -9,7 +9,7 @@ A modern, interactive restaurant website built with HTML, CSS, and JavaScript. T
 ## 📸 Screenshot
 
 ![TasteVerse Website Screenshot](https://github.com/reezmahanan/TasteVerse/blob/main/Screenshots/image%201.png)
-![TasteVerse Website Screenshot]()
+![TasteVerse Website Screenshot](https://github.com/reezmahanan/TasteVerse/blob/main/Screenshots/image%202.png)
 ![TasteVerse Website Screenshot]()
 
 
