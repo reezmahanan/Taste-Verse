@@ -2,7 +2,17 @@
 
 A modern, interactive restaurant website built with HTML, CSS, and JavaScript. TasteVerse offers a seamless user experience with smooth animations, responsive design, and professional aesthetics.
 
-## 🌟 Features
+## � Live Demo
+
+🔗 **[View Live Website](https://reezmahanaan.github.io)**
+
+## 📸 Screenshot
+
+![TasteVerse Website Screenshot](screenshot.png)
+
+> **Note:** Take a screenshot of your live website and save it as `screenshot.png` in the project folder, then push it to GitHub.
+
+## �🌟 Features
 
 ### Core Functionality
 - **Responsive Design** - Fully responsive across all devices (desktop, tablet, mobile)
@@ -43,9 +53,10 @@ A modern, interactive restaurant website built with HTML, CSS, and JavaScript. T
 ```
 Resturant Website/
 │
-├── intex .html          # Main HTML file
+├── index.html           # Main HTML file
 ├── style.css            # Complete styling and animations
 ├── script.js            # Interactive functionality
+├── screenshot.png       # Website preview image
 └── README.md            # Project documentation
 ```
 
@@ -62,13 +73,13 @@ Resturant Website/
 
 1. Clone or download the project files
 2. Ensure all three files are in the same directory:
-   - intex .html
+   - index.html
    - style.css
    - script.js
 
 ### Usage
 
-1. Open `intex .html` in any modern web browser
+1. Open `index.html` in any modern web browser
 2. No server or additional dependencies required
 3. Works offline (except for external resources: fonts, icons, images)
 
