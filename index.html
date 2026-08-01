@@ -7,6 +7,11 @@
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <!-- Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="style.css">
@@ -25,18 +30,70 @@
         <span class="logo-text">Taste<span class="logo-highlight">Verse</span></span>
     </a>
 
-    <div id="menu-bar" class="fas fa-bars"></div>
-
     <nav class="navbar">
         <a href="#home">Home</a>
         <a href="#speciality">Speciality</a>
-        <a href="#popular">Popular</a>
+        <a href="#popular">Menu</a>
+        <a href="#booking">Book Table</a>
         <a href="#gallery">Gallery</a>
         <a href="#review">Reviews</a>
         <a href="#order">Order</a>
     </nav>
 
+    <div class="header-controls">
+        <div id="theme-toggle" class="fas fa-moon"></div>
+        <div id="cart-btn" class="fas fa-shopping-cart">
+            <span class="cart-badge">0</span>
+        </div>
+        <div id="menu-bar" class="fas fa-bars"></div>
+    </div>
+
 </header>
+
+<!-- Cart Slider/Drawer -->
+<div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+        <h3>Your Culinary Cart</h3>
+        <div id="close-cart" class="fas fa-times"></div>
+    </div>
+    
+    <div class="cart-drawer-items" id="cart-items-container">
+        <div class="empty-cart-message">
+            <i class="fas fa-shopping-bag"></i>
+            <p>Your cart is empty. Add some delicious treats!</p>
+        </div>
+    </div>
+    
+    <div class="cart-drawer-footer">
+        <div class="promo-container">
+            <input type="text" id="promo-code" placeholder="Promo Code (e.g. TASTE20)">
+            <button id="apply-promo">Apply</button>
+        </div>
+        <div class="price-breakdown">
+            <div class="price-row">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal">Rs. 0.00</span>
+            </div>
+            <div class="price-row">
+                <span>Tax (10%):</span>
+                <span id="cart-tax">Rs. 0.00</span>
+            </div>
+            <div class="price-row">
+                <span>Delivery:</span>
+                <span id="cart-delivery">Rs. 150.00</span>
+            </div>
+            <div class="price-row discount-row" style="display: none;">
+                <span>Discount (20%):</span>
+                <span id="cart-discount">-Rs. 0.00</span>
+            </div>
+            <div class="price-row total-row">
+                <span>Grand Total:</span>
+                <span id="cart-total">Rs. 150.00</span>
+            </div>
+        </div>
+        <button id="checkout-btn" class="btn">Proceed to Checkout</button>
+    </div>
+</div>
 
 <!-- header section ends -->
 
@@ -82,6 +139,43 @@
 </section>
 
 <!-- home section ends -->
+
+<!-- daily deals section starts -->
+<section class="daily-deals" id="daily-deals">
+    <div class="deal-badge">Limited Time Offer</div>
+    <div class="deal-container">
+        <div class="deal-content">
+            <h2>Deal of the Day</h2>
+            <h3>Signature Beast Burger Combo</h3>
+            <p>Get our legendary Signature Beast Burger, crispy seasoned fries, and a chilled beverage of your choice at a whopping 50% discount! Hurry up, before time runs out!</p>
+            <div class="deal-pricing">
+                <span class="old-price">Rs. 950</span>
+                <span class="new-price">Rs. 475</span>
+            </div>
+            
+            <div class="countdown-wrapper">
+                <div class="countdown-box">
+                    <span id="deal-hours">00</span>
+                    <p>Hours</p>
+                </div>
+                <div class="countdown-box">
+                    <span id="deal-minutes">00</span>
+                    <p>Mins</p>
+                </div>
+                <div class="countdown-box">
+                    <span id="deal-seconds">00</span>
+                    <p>Secs</p>
+                </div>
+            </div>
+            
+            <button class="btn" id="claim-deal-btn" data-id="deal-combo" data-name="Signature Beast Burger Combo" data-price="475" data-img="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&q=80">Claim 50% Off Deal</button>
+        </div>
+        <div class="deal-image">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&q=80" alt="Special Deal Combo">
+        </div>
+    </div>
+</section>
+<!-- daily deals section ends -->
 
 <!-- speciality section starts  -->
 
@@ -146,16 +240,25 @@
 
 <!-- speciality section ends -->
 
-<!-- popular section starts  -->
+<!-- popular (menu) section starts  -->
 
 <section class="popular" id="popular">
 
-    <h1 class="heading fade-in"> Most <span>Popular</span> Foods </h1>
+    <h1 class="heading fade-in"> Explore Our <span>Menu</span> </h1>
+
+    <div class="menu-tabs fade-in">
+        <button class="menu-tab active" data-filter="all">All Dishes</button>
+        <button class="menu-tab" data-filter="burger">Burgers</button>
+        <button class="menu-tab" data-filter="pizza">Pizzas</button>
+        <button class="menu-tab" data-filter="breakfast">Breakfast</button>
+        <button class="menu-tab" data-filter="dessert">Desserts</button>
+        <button class="menu-tab" data-filter="drink">Beverages</button>
+    </div>
 
     <div class="box-container">
 
-        <div class="box">
-            <span class="price"> Rs.320 - Rs.1000 </span>
+        <div class="box" data-category="burger" data-id="burger-1" data-name="Signature Beast Burger" data-price="650" data-img="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&q=80">
+            <span class="price">Rs. 650</span>
             <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&q=80" alt="Tasty Burger">
             <h3>Signature Beast Burger</h3>
             <div class="stars">
@@ -165,10 +268,25 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="#order" class="btn">order now</a>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
         </div>
-        <div class="box">
-            <span class="price">Rs.1200 - Rs.2400  </span>
+
+        <div class="box" data-category="pizza" data-id="pizza-1" data-name="Truffle Mushroom Pizza" data-price="1250" data-img="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80">
+            <span class="price">Rs. 1250</span>
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80" alt="Tasty Pizza">
+            <h3>Truffle Mushroom Pizza</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="box" data-category="dessert" data-id="dessert-1" data-name="Heavenly Velvet Cake" data-price="850" data-img="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80">
+            <span class="price">Rs. 850</span>
             <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80" alt="Tasty Cakes">
             <h3>Heavenly Velvet Cake</h3>
             <div class="stars">
@@ -178,10 +296,11 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="#order" class="btn">order now</a>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
         </div>
-        <div class="box">
-            <span class="price"> Rs.500 - Rs.700 </span>
+
+        <div class="box" data-category="dessert" data-id="dessert-2" data-name="Golden Sweet Fantasy" data-price="420" data-img="https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=400&q=80">
+            <span class="price">Rs. 420</span>
             <img src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=400&q=80" alt="Tasty Sweets">
             <h3>Golden Sweet Fantasy</h3>
             <div class="stars">
@@ -191,10 +310,11 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="#order" class="btn">order now</a>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
         </div>
-        <div class="box">
-            <span class="price"> Rs.300 - Rs.500 </span>
+
+        <div class="box" data-category="dessert" data-id="dessert-3" data-name="Rainbow Bliss Cupcakes" data-price="380" data-img="https://images.unsplash.com/photo-1587241321921-91a834d6d191?w=400&q=80">
+            <span class="price">Rs. 380</span>
             <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?w=400&q=80" alt="Tasty Cupcakes">
             <h3>Rainbow Bliss Cupcakes</h3>
             <div class="stars">
@@ -204,10 +324,11 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="#order" class="btn">order now</a>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
         </div>
-        <div class="box">
-            <span class="price"> Rs.200 - Rs.500 </span>
+
+        <div class="box" data-category="drink" data-id="drink-1" data-name="Tropical Paradise Cooler" data-price="280" data-img="https://images.unsplash.com/photo-1546173159-315724a31696?w=400&q=80">
+            <span class="price">Rs. 280</span>
             <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=400&q=80" alt="Cold Drinks">
             <h3>Tropical Paradise Cooler</h3>
             <div class="stars">
@@ -217,10 +338,11 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="#order" class="btn">order now</a>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
         </div>
-        <div class="box">
-            <span class="price"> Rs.100 - Rs.400 </span>
+
+        <div class="box" data-category="dessert" data-id="dessert-4" data-name="Artisan Gelato Supreme" data-price="320" data-img="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=80">
+            <span class="price">Rs. 320</span>
             <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=80" alt="Cold Ice Cream">
             <h3>Artisan Gelato Supreme</h3>
             <div class="stars">
@@ -230,7 +352,77 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
             </div>
-            <a href="#order" class="btn">order now</a>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="box" data-category="breakfast" data-id="breakfast-1" data-name="Avocado Toast Supreme" data-price="580" data-img="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400&q=80">
+            <span class="price">Rs. 580</span>
+            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400&q=80" alt="Breakfast">
+            <h3>Avocado Toast Supreme</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="box" data-category="pizza" data-id="pizza-2" data-name="Classic Margherita Pizza" data-price="950" data-img="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80">
+            <span class="price">Rs. 950</span>
+            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80" alt="Classic Margherita">
+            <h3>Classic Margherita Pizza</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="box" data-category="burger" data-id="burger-2" data-name="Double Bacon Cheese Burger" data-price="720" data-img="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80">
+            <span class="price">Rs. 720</span>
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80" alt="Double Bacon Cheese Burger">
+            <h3>Double Bacon Cheese Burger</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="box" data-category="drink" data-id="drink-2" data-name="Chilled Espresso Frappe" data-price="350" data-img="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400&q=80">
+            <span class="price">Rs. 350</span>
+            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400&q=80" alt="Espresso Frappe">
+            <h3>Chilled Espresso Frappe</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="box" data-category="breakfast" data-id="breakfast-2" data-name="French Waffles Classic" data-price="480" data-img="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=400&q=80">
+            <span class="price">Rs. 480</span>
+            <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=400&q=80" alt="French Waffles">
+            <h3>French Waffles Classic</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <button class="btn add-to-cart-btn">Add to Cart</button>
         </div>
 
     </div>
@@ -363,10 +555,10 @@
 
     <h1 class="heading"> Our Customers <span>Reviews</span> </h1>
 
-    <div class="box-container">
+    <div class="box-container" id="reviews-container">
 
         <div class="box">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Customer Rafeek">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Customer Kasun">
             <h3>Kasun Perera</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -378,7 +570,7 @@
             <p>The food quality is exceptional and truly enjoyable. Outstanding service and amazing flavors that exceed all expectations!</p>
         </div>
         <div class="box">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Customer Jazam">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Customer Dilshan">
             <h3>Dilshan Silva</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -390,7 +582,7 @@
             <p>Excellent service with incredibly friendly and professional staff. The food quality has improved tremendously. Everything is prepared fresh, served hot, and tastes absolutely delicious!</p>
         </div>
         <div class="box">
-            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80" alt="Customer Mohammed">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80" alt="Customer Nuwan">
             <h3>Nuwan Jayawardena</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -404,35 +596,119 @@
 
     </div>
 
+    <!-- Review Form -->
+    <div class="add-review-wrapper fade-in">
+        <div class="add-review-container">
+            <h3>Share Your Culinary Experience</h3>
+            <form id="add-review-form">
+                <div class="inputBox">
+                    <input type="text" id="rev-name" placeholder="Your Full Name" required>
+                    <div class="rating-input-container">
+                        <label>Your Rating: </label>
+                        <div class="rating-stars" id="rating-stars-input">
+                            <i class="far fa-star" data-value="1"></i>
+                            <i class="far fa-star" data-value="2"></i>
+                            <i class="far fa-star" data-value="3"></i>
+                            <i class="far fa-star" data-value="4"></i>
+                            <i class="far fa-star" data-value="5"></i>
+                        </div>
+                        <input type="hidden" id="rev-rating" value="5">
+                    </div>
+                </div>
+                <textarea id="rev-text" placeholder="Tell us what you loved about TasteVerse..." required></textarea>
+                <button type="submit" class="btn">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
 </section>
 
 <!-- review section ends -->
 
-<!-- order section starts  -->
+<!-- booking section starts -->
+<section class="booking" id="booking">
+
+    <h1 class="heading"> Book a <span>Table</span> </h1>
+
+    <div class="row">
+        
+        <form id="table-booking-form">
+            <div class="inputBox">
+                <input type="text" id="book-name" placeholder="Your Full Name" required>
+                <input type="email" id="book-email" placeholder="Your Email Address" required>
+            </div>
+            <div class="inputBox">
+                <input type="number" id="book-phone" placeholder="Your Phone Number" required>
+                <input type="number" id="book-guests" placeholder="Number of Guests" min="1" max="20" required>
+            </div>
+            <div class="inputBox">
+                <input type="date" id="book-date" required>
+                <select id="book-time" required>
+                    <option value="" disabled selected>Select Time Slot</option>
+                    <option value="12:00 PM">12:00 PM (Lunch)</option>
+                    <option value="1:30 PM">1:30 PM (Lunch)</option>
+                    <option value="3:00 PM">3:00 PM (Afternoon)</option>
+                    <option value="6:00 PM">6:00 PM (Dinner)</option>
+                    <option value="7:30 PM">7:30 PM (Dinner)</option>
+                    <option value="9:00 PM">9:00 PM (Dinner)</option>
+                </select>
+            </div>
+            <div class="inputBox">
+                <select id="book-table-type" required>
+                    <option value="" disabled selected>Preferred Seating</option>
+                    <option value="Standard Table">Standard Table</option>
+                    <option value="Cozy Corner">Cozy Corner</option>
+                    <option value="Window View">Window View</option>
+                    <option value="VIP Private Booth">VIP Private Booth</option>
+                </select>
+                <input type="text" id="book-requests" placeholder="Special Requests (e.g. Birthday, Anniversary)">
+            </div>
+            <div class="inputBox seating-map-button-row">
+                <button type="button" class="btn" id="open-seating-map-btn"><i class="fas fa-map-marked-alt"></i> Choose Table on Map</button>
+                <span id="selected-table-label">No Table Chosen (Auto-assigned)</span>
+                <input type="hidden" id="selected-table-id" value="">
+            </div>
+            <input type="submit" value="Book Now" class="btn">
+        </form>
+
+        <div class="image">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Dining Table">
+        </div>
+
+    </div>
+
+</section>
+<!-- booking section ends -->
+
+<!-- order (checkout) section starts  -->
 
 <section class="order" id="order">
 
-    <h1 class="heading"> <span>Order</span> Now </h1>
+    <h1 class="heading"> Checkout <span>Now</span> </h1>
 
     <div class="row">
         
         <div class="image">
-            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=500&q=80" alt="Order Now">
+            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=500&q=80" alt="Checkout">
         </div>
 
-        <form action="">
+        <form id="checkout-form">
 
             <div class="inputBox">
-                <input type="text" placeholder="Your Full Name" required>
-                <input type="email" placeholder="Your Email Address" required>
+                <input type="text" id="cust-name" placeholder="Your Full Name" required>
+                <input type="email" id="cust-email" placeholder="Your Email Address" required>
             </div>
 
             <div class="inputBox">
-                <input type="number" placeholder="Your Phone Number" required>
-                <input type="text" placeholder="Food Item Name" required>
+                <input type="number" id="cust-phone" placeholder="Your Phone Number" required>
+                <input type="text" id="cust-food" placeholder="Food Items (Selected from Cart)" readonly required>
             </div>
 
-            <textarea placeholder="Delivery Address" name="" id="" cols="30" rows="10" required></textarea>
+            <textarea id="cust-address" placeholder="Delivery Address" cols="30" rows="10" required></textarea>
+
+            <div class="checkout-summary-box">
+                <p>Items: <span id="summary-items-count">0</span> | Total: <span id="summary-total-price">Rs. 0</span></p>
+            </div>
 
             <input type="submit" value="Place Order" class="btn">
 
@@ -443,6 +719,366 @@
 </section>
 
 <!-- order section ends -->
+
+<!-- Live Order Tracking Modal -->
+<div class="modal-container" id="tracking-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-tracking">&times;</span>
+        <h2>Order Status Tracker</h2>
+        <p class="order-id-display">Order Reference: <span id="tracking-order-id">#TV-847291</span></p>
+        
+        <div class="tracking-visual">
+            <div class="tracking-step active" id="step-1">
+                <div class="icon-container"><i class="fas fa-clipboard-list"></i></div>
+                <div class="step-label">Order Received</div>
+                <div class="step-time" id="time-step-1">Just Now</div>
+            </div>
+            <div class="tracking-line"></div>
+            <div class="tracking-step" id="step-2">
+                <div class="icon-container"><i class="fas fa-fire-alt"></i></div>
+                <div class="step-label">Preparing</div>
+                <div class="step-time" id="time-step-2">Pending</div>
+            </div>
+            <div class="tracking-line"></div>
+            <div class="tracking-step" id="step-3">
+                <div class="icon-container"><i class="fas fa-motorcycle"></i></div>
+                <div class="step-label">On Its Way</div>
+                <div class="step-time" id="time-step-3">Pending</div>
+            </div>
+            <div class="tracking-line"></div>
+            <div class="tracking-step" id="step-4">
+                <div class="icon-container"><i class="fas fa-home"></i></div>
+                <div class="step-label">Delivered</div>
+                <div class="step-time" id="time-step-4">Pending</div>
+            </div>
+        </div>
+        
+        <div class="tracking-details">
+            <p><strong>Customer Name:</strong> <span id="tracking-name">Loading...</span></p>
+            <p><strong>Delivery Address:</strong> <span id="tracking-address">Loading...</span></p>
+            <p><strong>Items Ordered:</strong> <span id="tracking-items">Loading...</span></p>
+            <p><strong>Total Paid:</strong> <span id="tracking-total">Loading...</span></p>
+        </div>
+        <div class="estimated-time">
+            Estimated Delivery Time: <span id="est-delivery-time">25-35 minutes</span>
+        </div>
+    </div>
+</div>
+
+<!-- Booking Ticket Modal -->
+<div class="modal-container" id="booking-modal">
+    <div class="modal-content ticket-content">
+        <span class="close-modal" id="close-booking">&times;</span>
+        <div class="ticket-header">
+            <i class="fas fa-check-circle ticket-success-icon"></i>
+            <h2>Table Reservation Confirmed!</h2>
+        </div>
+        <div class="ticket-card">
+            <div class="ticket-divider"></div>
+            <div class="ticket-body">
+                <div class="ticket-row">
+                    <div>
+                        <span class="ticket-label">Reservation Name</span>
+                        <span class="ticket-value" id="t-name">John Doe</span>
+                    </div>
+                    <div>
+                        <span class="ticket-label">Booking Reference</span>
+                        <span class="ticket-value" id="t-ref">#TV-RES-9872</span>
+                    </div>
+                </div>
+                <div class="ticket-row">
+                    <div>
+                        <span class="ticket-label">Date</span>
+                        <span class="ticket-value" id="t-date">August 12, 2026</span>
+                    </div>
+                    <div>
+                        <span class="ticket-label">Time Slot</span>
+                        <span class="ticket-value" id="t-time">7:30 PM</span>
+                    </div>
+                </div>
+                <div class="ticket-row">
+                    <div>
+                        <span class="ticket-label">Table Seating</span>
+                        <span class="ticket-value" id="t-table">VIP Private Booth</span>
+                    </div>
+                    <div>
+                        <span class="ticket-label">Guests</span>
+                        <span class="ticket-value" id="t-guests">4 Persons</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ticket-barcode">
+                <div class="barcode-line"></div>
+                <p>TasteVerse Dining Experience</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Table Seating Map Modal -->
+<div class="modal-container" id="seating-map-modal">
+    <div class="modal-content seating-map-content">
+        <span class="close-modal" id="close-seating-map">&times;</span>
+        <h2>Restaurant Seating Map</h2>
+        <p class="seating-subtitle">Select your preferred table. Red tables are reserved.</p>
+        
+        <div class="seating-layout">
+            <div class="restaurant-stage">Entrance & Bar Counter</div>
+            
+            <div class="tables-grid">
+                <!-- Zone 1: VIP Booths -->
+                <div class="seating-zone">
+                    <h4>VIP Booths (Zone A)</h4>
+                    <div class="tables-row">
+                        <div class="table-node vip" data-table="VIP-1" data-capacity="6" data-type="VIP Private Booth">
+                            <span class="table-icon"><i class="fas fa-couch"></i></span>
+                            <span class="table-num">VIP-1</span>
+                        </div>
+                        <div class="table-node vip reserved" data-table="VIP-2" data-capacity="6" data-type="VIP Private Booth">
+                            <span class="table-icon"><i class="fas fa-couch"></i></span>
+                            <span class="table-num">VIP-2</span>
+                        </div>
+                        <div class="table-node vip" data-table="VIP-3" data-capacity="4" data-type="VIP Private Booth">
+                            <span class="table-icon"><i class="fas fa-couch"></i></span>
+                            <span class="table-num">VIP-3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone 2: Scenic Window Views -->
+                <div class="seating-zone">
+                    <h4>Scenic Window View (Zone B)</h4>
+                    <div class="tables-row">
+                        <div class="table-node window" data-table="Window-4" data-capacity="4" data-type="Window View">
+                            <span class="table-icon"><i class="fas fa-window-maximize"></i></span>
+                            <span class="table-num">W-4</span>
+                        </div>
+                        <div class="table-node window" data-table="Window-5" data-capacity="2" data-type="Window View">
+                            <span class="table-icon"><i class="fas fa-window-maximize"></i></span>
+                            <span class="table-num">W-5</span>
+                        </div>
+                        <div class="table-node window reserved" data-table="Window-6" data-capacity="4" data-type="Window View">
+                            <span class="table-icon"><i class="fas fa-window-maximize"></i></span>
+                            <span class="table-num">W-6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone 3: Cozy Corners -->
+                <div class="seating-zone">
+                    <h4>Cozy Corners (Zone C)</h4>
+                    <div class="tables-row">
+                        <div class="table-node cozy" data-table="Corner-7" data-capacity="2" data-type="Cozy Corner">
+                            <span class="table-icon"><i class="fas fa-heart"></i></span>
+                            <span class="table-num">C-7</span>
+                        </div>
+                        <div class="table-node cozy" data-table="Corner-8" data-capacity="2" data-type="Cozy Corner">
+                            <span class="table-icon"><i class="fas fa-heart"></i></span>
+                            <span class="table-num">C-8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone 4: Standard Tables -->
+                <div class="seating-zone">
+                    <h4>Standard Dining (Zone D)</h4>
+                    <div class="tables-row">
+                        <div class="table-node standard" data-table="Standard-9" data-capacity="4" data-type="Standard Table">
+                            <span class="table-icon"><i class="fas fa-chair"></i></span>
+                            <span class="table-num">S-9</span>
+                        </div>
+                        <div class="table-node standard reserved" data-table="Standard-10" data-capacity="4" data-type="Standard Table">
+                            <span class="table-icon"><i class="fas fa-chair"></i></span>
+                            <span class="table-num">S-10</span>
+                        </div>
+                        <div class="table-node standard" data-table="Standard-11" data-capacity="6" data-type="Standard Table">
+                            <span class="table-icon"><i class="fas fa-chair"></i></span>
+                            <span class="table-num">S-11</span>
+                        </div>
+                        <div class="table-node standard" data-table="Standard-12" data-capacity="2" data-type="Standard Table">
+                            <span class="table-icon"><i class="fas fa-chair"></i></span>
+                            <span class="table-num">S-12</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="seating-legend">
+            <div class="legend-item"><span class="legend-dot available"></span> Available</div>
+            <div class="legend-item"><span class="legend-dot selected"></span> Selected</div>
+            <div class="legend-item"><span class="legend-dot reserved"></span> Reserved</div>
+        </div>
+        
+        <div class="seating-confirm-container">
+            <div class="selected-info">
+                <span>Selected: <strong id="map-selected-label">None</strong></span>
+            </div>
+            <button class="btn" id="confirm-seating-btn">Confirm Selection</button>
+        </div>
+    </div>
+</div>
+
+<!-- Food Customizer Modal -->
+<div class="modal-container" id="customizer-modal">
+    <div class="modal-content customizer-content">
+        <span class="close-modal" id="close-customizer">&times;</span>
+        <div class="customizer-split">
+            <div class="customizer-image-side">
+                <img id="customizer-dish-img" src="" alt="">
+                <div class="nutrition-box">
+                    <h4>Nutritional Profile</h4>
+                    <div class="nutrition-row">
+                        <span>Calories</span>
+                        <div class="progress-bar"><div class="bar-fill" id="nut-cal-bar" style="width: 75%"></div></div>
+                        <span id="nut-cal-val">580 kcal</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span>Proteins</span>
+                        <div class="progress-bar"><div class="bar-fill" id="nut-prot-bar" style="width: 60%"></div></div>
+                        <span id="nut-prot-val">24g</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span>Carbs</span>
+                        <div class="progress-bar"><div class="bar-fill" id="nut-carb-bar" style="width: 50%"></div></div>
+                        <span id="nut-carb-val">48g</span>
+                    </div>
+                </div>
+            </div>
+            <div class="customizer-info-side">
+                <h2 id="customizer-dish-name">Signature Beast Burger</h2>
+                <p id="customizer-dish-desc">Juicy Double Patties, melted Cheddar, special house sauce in a soft bun.</p>
+                <div class="allergens-box">
+                    <span>Allergens: <strong id="customizer-allergens">Dairy, Gluten, Eggs</strong></span>
+                </div>
+                
+                <div class="customizer-options">
+                    <h3>Personalize Your Dish</h3>
+                    <div class="option-group">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" class="addon-checkbox" data-name="Extra Cheese" data-price="60">
+                            <span class="checkmark"></span>
+                            Extra Cheddar Cheese (+Rs. 60)
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" class="addon-checkbox" data-name="Extra Bacon" data-price="120">
+                            <span class="checkmark"></span>
+                            Crispy Maple Bacon (+Rs. 120)
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" class="addon-checkbox" data-name="Gluten-Free Bun" data-price="80">
+                            <span class="checkmark"></span>
+                            Gluten-Free Charcoal Bun (+Rs. 80)
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" class="addon-checkbox" data-name="No Onions" data-price="0">
+                            <span class="checkmark"></span>
+                            Remove Fresh Onions
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" class="addon-checkbox" data-name="No Sauce" data-price="0">
+                            <span class="checkmark"></span>
+                            Remove Signature Sauce
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="customizer-action">
+                    <div class="customizer-price-display">
+                        <span>Price: <strong id="customizer-total-price">Rs. 650</strong></span>
+                    </div>
+                    <button class="btn" id="customizer-add-to-cart-btn">Add Customized Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chef Recommendation Quiz Slide-out / Modal -->
+<div class="modal-container" id="chef-quiz-modal">
+    <div class="modal-content quiz-content">
+        <span class="close-modal" id="close-chef-quiz">&times;</span>
+        <h2>Chef AI Recommendation</h2>
+        <p class="quiz-subtitle">Answer 3 simple questions and our Chef will suggest the perfect dish for you!</p>
+        
+        <!-- Step 1: Diet -->
+        <div class="quiz-step active" id="quiz-step-1">
+            <span class="step-num">Step 1 of 3</span>
+            <h3>What is your dietary preference today?</h3>
+            <div class="quiz-options-grid">
+                <div class="quiz-option-card" data-answer="diet:all">
+                    <span class="quiz-option-icon"><i class="fas fa-utensils"></i></span>
+                    <h4>Anything goes</h4>
+                </div>
+                <div class="quiz-option-card" data-answer="diet:breakfast">
+                    <span class="quiz-option-icon"><i class="fas fa-bread-slice"></i></span>
+                    <h4>Light/Breakfast</h4>
+                </div>
+                <div class="quiz-option-card" data-answer="diet:sweet">
+                    <span class="quiz-option-icon"><i class="fas fa-cookie-bite"></i></span>
+                    <h4>Sweet Tooth</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Spiciness -->
+        <div class="quiz-step" id="quiz-step-2">
+            <span class="step-num">Step 2 of 3</span>
+            <h3>How much heat/spiciness do you prefer?</h3>
+            <div class="quiz-options-grid">
+                <div class="quiz-option-card" data-answer="spice:mild">
+                    <span class="quiz-option-icon"><i class="fas fa-leaf"></i></span>
+                    <h4>Mild / Sweet</h4>
+                </div>
+                <div class="quiz-option-card" data-answer="spice:medium">
+                    <span class="quiz-option-icon"><i class="fas fa-pepper-hot"></i></span>
+                    <h4>Medium Spice</h4>
+                </div>
+                <div class="quiz-option-card" data-answer="spice:hot">
+                    <span class="quiz-option-icon"><i class="fas fa-fire"></i></span>
+                    <h4>Fiery Hot & Spicy</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Type -->
+        <div class="quiz-step" id="quiz-step-3">
+            <span class="step-num">Step 3 of 3</span>
+            <h3>What type of dish are you looking for?</h3>
+            <div class="quiz-options-grid">
+                <div class="quiz-option-card" data-answer="type:main">
+                    <span class="quiz-option-icon"><i class="fas fa-hamburger"></i></span>
+                    <h4>Main Course Meal</h4>
+                </div>
+                <div class="quiz-option-card" data-answer="type:dessert">
+                    <span class="quiz-option-icon"><i class="fas fa-birthday-cake"></i></span>
+                    <h4>Dessert Treat</h4>
+                </div>
+                <div class="quiz-option-card" data-answer="type:drink">
+                    <span class="quiz-option-icon"><i class="fas fa-glass-cheers"></i></span>
+                    <h4>Refreshing Drink</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Step -->
+        <div class="quiz-step" id="quiz-result-step">
+            <h3>Chef's Special Recommendation!</h3>
+            <div class="recommendation-card" id="recommended-dish-card">
+                <!-- Dynamic Content goes here -->
+            </div>
+            <div class="quiz-actions">
+                <button class="btn btn-secondary" id="restart-quiz-btn">Retake Quiz</button>
+                <button class="btn btn-primary" id="add-recommended-btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Chef Quiz Button -->
+<div id="chef-quiz-btn" class="fas fa-robot">
+    <span class="chef-btn-tooltip">Chef AI Recommendation</span>
+</div>
 
 <!-- footer section  -->
 
