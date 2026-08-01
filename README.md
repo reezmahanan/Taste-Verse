@@ -1,190 +1,108 @@
-# TasteVerse - Restaurant Website
+# TasteVerse - High-End Restaurant Experience
 
-A modern, interactive restaurant website built with HTML, CSS, and JavaScript. TasteVerse offers a seamless user experience with smooth animations, responsive design, and professional aesthetics.
-
-## � Live Demo
+TasteVerse is a premium, fully responsive, and highly interactive restaurant website designed to offer a state-of-the-art dining and reservation experience. Built with HTML5, CSS3, and modern vanilla ES6+ JavaScript, it showcases rich animations, vibrant dark/light theme switching, and real-time client-side systems.
 
 🔗 **[View Live Website](https://reezmahanan.github.io/Taste-Verse/)**
 
-## 📸 Screenshot
+---
 
-![TasteVerse Website Screenshot](https://github.com/reezmahanan/TasteVerse/blob/main/Screenshots/image%201.png)
-![TasteVerse Website Screenshot](https://github.com/reezmahanan/TasteVerse/blob/main/Screenshots/image%202.png)
-![TasteVerse Website Screenshot](https://github.com/reezmahanan/TasteVerse/blob/main/Screenshots/image%203.png)
+## 📸 Screenshots & Highlights
 
-
-## �🌟 Features
-
-### Core Functionality
-- **Responsive Design** - Fully responsive across all devices (desktop, tablet, mobile)
-- **Interactive Animations** - Scroll-based animations, hover effects, and smooth transitions
-- **Custom Cursor** - Enhanced user experience with custom cursor and follower (desktop only)
-- **Loading Screen** - Professional animated loader with spinning plate and food icons
-- **Scroll Progress Bar** - Visual indicator of page scroll progress
-
-### Sections
-1. **Home** - Hero section with blurred background, stats counter, and call-to-action buttons
-2. **Speciality** - 6 food categories with detailed descriptions
-3. **Popular** - Featured menu items with eye-catching names and pricing
-4. **How It Works** - 4-step ordering process visualization
-5. **Gallery** - Food photography showcase with unique dish names
-6. **Reviews** - Customer testimonials with ratings
-7. **Order** - Contact form with validation and professional layout
-8. **Footer** - Contact information, social media links, and credits
-
-### Interactive Elements
-- **Stats Counter** - Animated counting (1000+ customers, 50+ items, 24/7 service)
-- **Form Validation** - Shake animation for validation errors
-- **Confetti Effect** - Celebratory animation on button clicks
-- **3D Tilt Cards** - Interactive card effects on hover
-- **Smooth Scrolling** - Seamless navigation between sections
-- **Particle Effects** - Floating background particles
-
-## 🛠️ Technologies Used
-
-- **HTML5** - Semantic markup structure
-- **CSS3** - Custom animations, gradients, flexbox, grid
-- **JavaScript (ES6+)** - Interactive functionality and DOM manipulation
-- **Font Awesome 5.15.3** - Icon library
-- **Google Fonts (Nunito)** - Professional typography
-- **Unsplash API** - High-quality food imagery
-
-## 📋 File Structure
-
-```
-Resturant Website/
-│
-├── index.html           # Main HTML file
-├── style.css            # Complete styling and animations
-├── script.js            # Interactive functionality
-├── screenshot.png       # Website preview image
-└── README.md            # Project documentation
-```
-
-## 🎨 Color Scheme
-
-- **Primary Red:** #ff3838
-- **White/Light Backgrounds:** #ffffff, #fff5f5, #ffe5e5
-- **Dark Sections:** #2c2c2c, #1a1a1a
-- **Text:** #333, #666, #999
-
-## 🚀 Getting Started
-
-### Installation
-
-1. Clone or download the project files
-2. Ensure all three files are in the same directory:
-   - index.html
-   - style.css
-   - script.js
-
-### Usage
-
-1. Open `index.html` in any modern web browser
-2. No server or additional dependencies required
-3. Works offline (except for external resources: fonts, icons, images)
-
-### Browser Compatibility
-
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
-- Opera
-
-## 📱 Responsive Breakpoints
-
-- **Desktop:** 991px and above
-- **Tablet:** 768px - 991px
-- **Mobile:** 450px - 768px
-- **Small Mobile:** Below 450px
-
-## ✨ Key Features Implementation
-
-### Scroll Animations
-Uses IntersectionObserver API for performance-optimized scroll animations:
-- Fade-in effects
-- Slide-in from different directions
-- Scale animations
-
-### Custom Cursor
-Smooth cursor tracking using `requestAnimationFrame` for optimal performance.
-
-### Stats Counter
-Animated number counting from 0 to target value triggered when section is visible.
-
-### Form Validation
-Client-side validation with visual feedback (shake animation on error).
-
-## 📞 Contact Information
-
-**Location:** No. 123, Galle Road, Colombo 03, Sri Lanka  
-**Phone:** +94 11 234 5678  
-**Email:** info@tasteverse.com
-
-## 🎯 Menu Highlights
-
-- Signature Beast Burger
-- Heavenly Velvet Cake
-- Golden Sweet Fantasy
-- Rainbow Bliss Cupcakes
-- Tropical Paradise Cooler
-- Artisan Gelato Supreme
-
-## 👥 Credits
-
-**Created by:** Reezma Hanan  
-**Copyright:** © 2026 TasteVerse. All Rights Reserved.
-
-## 📄 License
-
-This project is created for educational and portfolio purposes.
-
-## 🔧 Customization
-
-### Changing Colors
-Edit CSS variables in `style.css`:
-```css
-:root {
-  --red: #ff3838;
-}
-```
-
-### Updating Content
-- **Menu items:** Edit HTML in the `popular` section
-- **Contact info:** Update footer contact details
-- **Images:** Replace Unsplash URLs with your own
-
-### Adding New Sections
-Follow the existing structure:
-1. Add HTML section with unique ID
-2. Style in `style.css`
-3. Add navigation link in header
-
-## 🐛 Known Issues
-
-None currently reported.
-
-## 🚀 Future Enhancements
-
-- Backend integration for order processing
-- Payment gateway integration
-- User authentication system
-- Real-time order tracking
-- Menu management system
-- Multi-language support
-
-## 📝 Version History
-
-- **v1.0** (Feb 2026) - Initial release
-  - Full responsive design
-  - Interactive animations
-  - Complete restaurant website functionality
-
-## 🤝 Contributing
-
-This is a personal project. For suggestions or improvements, please contact Reezma Hanan.
+![TasteVerse Home Mockup](https://github.com/reezmahanan/TasteVerse/blob/main/Screenshots/image%201.png)
+![TasteVerse Seating Map Mockup](https://github.com/reezmahanan/TasteVerse/blob/main/Screenshots/image%202.png)
+![TasteVerse Cart Drawer Mockup](https://github.com/reezmahanan/TasteVerse/blob/main/Screenshots/image%203.png)
 
 ---
 
-**Made with ❤️ by Reezma Hanan**
+## 🌟 Interactive Features
+
+### 1. 🛒 Persistent Shopping Cart Drawer
+*   **Slide-Out UX**: A sleek right-side navigation drawer showing staged order items.
+*   **Persistent Storage**: Saves the cart state in the browser's `localStorage` (persists on page reloads).
+*   **Discount Code System**: Supports promo codes (e.g., enter `TASTE20` for a flat 20% discount on order subtotal).
+*   **Responsive Calculations**: Dynamic updates for subtotal, tax rates, shipping/delivery fees, and total price.
+
+### 2. 🕒 Daily Deals Countdown Banner
+*   **Limited Offers**: Prominent hero banner ticking down to midnight tonight.
+*   **Urgency Animation**: High-end interactive ticking cards display `Hours : Minutes : Seconds`.
+*   **Claim System**: Clicking **Claim 50% Off Deal** adds the signature combo meal to the cart with a single click.
+
+### 3. 🍔 Food Customizer & Nutritional Profile
+*   **Overlay Modal**: Clicking any dish card's image or title launches an customization panel.
+*   **Nutrition Bars**: Displays calibrated progress bars for Calories (kcal), Protein (g), and Carbs (g), alongside allergen warnings.
+*   **Topping Add-Ons**: Checkboxes to toggle extra cheddar, bacon, or gluten-free configurations that modify the final checkout name and total price dynamically.
+
+### 4. 🗺️ Interactive Table Seating Map
+*   **Visual Restaurant Layout**: Opens a spatial map representational grid of the restaurant floor.
+*   **Categorized Zones**: Select from VIP Booths, Scenic Window views, Cozy Corners, or Standard Tables.
+*   **Live Selection Sync**: Displays available (white), reserved (red), and selected (green) states, updates guests limits, and automatically prints the table location details on the booking receipt ticket.
+
+### 5. 🤖 Chef AI Recommendation Widget
+*   **Floating Chatbot Button**: A pulsing robotic chef icon anchored to the bottom-right.
+*   **3-Step Questionnaire**: Collects preferences for Diet category, Heat/Spice levels, and Meal type.
+*   **Interactive Matcher**: Score-based recommendation algorithm suggests the ideal menu match and adds it to the cart.
+
+### 6. 🌓 Dual-Theme Toggler
+*   **Dark Mode Sync**: Instant, lag-free switcher between premium Dark mode (cool tones, high contrast) and Light mode. Saves preference settings via `localStorage`.
+
+### 7. 🛵 Live Order Tracking Timeline
+*   **Status Progress Bar**: Tracks placement status through 4 distinct stages (*Order Received*, *Preparing*, *On Its Way*, *Delivered*).
+*   **Simulated Countdown Timers**: Updates relative step completion timestamps dynamically.
+
+### 8. ✍️ Testimonial & Review Feed
+*   **Live Submission**: Interactive rating selector and comment field that prepends new reviews to the testimonials feed instantly.
+
+---
+
+## 🛠️ Tech Stack & Assets
+
+*   **Markup**: HTML5 (Semantic Structure)
+*   **Styling**: CSS3 (Vanilla Custom properties, Grid/Flexbox layouts, glassmorphism, responsive keyframes)
+*   **Behavior**: JavaScript (ES6+ Vanilla DOM operations, LocalStorage API, requestAnimationFrame loops)
+*   **Icons**: Font Awesome 5.15.3
+*   **Typography**: Headings: *Playfair Display*, UI Elements: *Outfit* (Google Fonts)
+*   **Images**: Verified high-resolution food assets from Unsplash
+
+---
+
+## 📋 Folder Structure
+
+```
+Taste-Verse/
+│
+├── index.html           # Main HTML structure and modal wrappers
+├── style.css            # Responsive layout structure, variables, dark overrides, animations
+├── script.js            # Seating map grid, cart state, customizer, countdown, quiz logic
+└── README.md            # Project documentation and details
+```
+
+---
+
+## 🚀 Getting Started
+
+### Quick Start
+1. Clone this repository locally:
+   ```bash
+   git clone https://github.com/reezmahanan/Taste-Verse.git
+   ```
+2. Open `index.html` in any web browser to run the application offline. No servers, node modules, or compile stages are required!
+
+---
+
+## 🎨 Design Systems & Palette
+
+| Token / Variable | Light Mode Value | Dark Mode Value |
+| :--- | :--- | :--- |
+| `--bg-primary` | `#ffffff` | `#121212` (Pitch) |
+| `--bg-secondary` | `#fff5f5` | `#1e1e1e` (Slate) |
+| `--text-primary` | `#333333` | `#f5f5f5` (White-gray) |
+| `--text-secondary` | `#666666` | `#b0b0b0` (Silver) |
+| `--red` | `#ff3838` (Vibrant Coral) | `#ff4d4d` |
+| `--border-color` | `rgba(0, 0, 0, 0.1)` | `rgba(255, 255, 255, 0.1)` |
+
+---
+
+## 👥 Credits
+
+*   **Designed & Developed by:** Reezma Hanan
+*   **Copyright:** © 2026 TasteVerse. All Rights Reserved.
