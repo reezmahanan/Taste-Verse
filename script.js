@@ -287,19 +287,7 @@ function createConfetti(x, y) {
   }
 }
 
-// Loader
-function loader(){
-  const loaderContainer = document.querySelector('.loader-container');
-  if (loaderContainer) {
-    loaderContainer.classList.add('fade-out');
-  }
-}
 
-function fadeOut(){
-  setInterval(loader, 2500);
-}
-
-window.onload = fadeOut;
 
 /* ==========================================================================
    CART OPERATIONS & ORDER FLOW STATE
